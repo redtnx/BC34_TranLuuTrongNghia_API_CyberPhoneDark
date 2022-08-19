@@ -5,11 +5,17 @@ function getEle(id) {
 }
 
 function fetchData() {
+  // Pending
+  // Show loader
+  getEle("loading").style.display = "block";
   service
     .getListProduct()
     .then(function (result) {
-      console.log(result.data);
+      // Response
       renderHTML(result.data);
+
+      // Hide loader
+      getEle("loading").style.display = "none";
     })
     .catch(function (error) {
       console.log(error);
